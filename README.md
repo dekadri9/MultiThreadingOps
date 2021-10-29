@@ -11,16 +11,17 @@ In order to execute the program, at lesta Java SDK 11 (Java version 11.0.6) must
 ```bash
 java MultiThreadingOperations.jar
 
-#Execution
-Performing operation 5.
-Performing operation 2.
-Performing operation 1.
+#Output
+
+Performing operation 2 in thread number 13.
+Performing operation 5 in thread number 14.
+Performing operation 1 in thread number 12.
+Operation 2 finished.
 Operation 1 finished.
 Operation 5 finished.
-Operation 2 finished.
-Performing operation 3.
+Performing operation 3 in thread number 16.
 Operation 3 finished.
-Performing operation 4.
+Performing operation 4 in thread number 17.
 Operation 4 finished.
 
 ```
