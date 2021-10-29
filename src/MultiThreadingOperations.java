@@ -1,57 +1,48 @@
+import java.util.concurrent.*;
+
 public class MultiThreadingOperations {
     public static void main (String[] args) throws InterruptedException {
 
-        /*for (int i = 1; i <= 5; i++){
-            Operation operation = new Operation(i);
-            Thread myThread = new Thread(operation);
-            myThread.start();
-
-        }*/
-
+        //Initializing all 5 operations with their IDs
         Operation op1 = new Operation(1);
         Operation op2 = new Operation(2);
         Operation op3 = new Operation(3);
         Operation op4 = new Operation(4);
         Operation op5 = new Operation(5);
 
-        Thread t1 = new Thread(op1);
-        Thread t2 = new Thread(op2);
-        Thread t3 = new Thread(op5);
-        t1.start();
-        op1.setThreadNumber(t1.getId());
-        t2.start();
-        op2.setThreadNumber(t2.getId());
-        t3.start();
-        op5.setThreadNumber(t3.getId());
-        try{
-            t1.join();
-            t2.join();
-        } catch (Exception e){
-            System.out.println("Interrupted");
-        }
-        t1 = new Thread(op3);
-        t1.start();
-        op3.setThreadNumber(t1.getId());
-        try{
-            t1.join();
-        } catch (Exception e){
-            System.out.println("Interrupted");
-        }
-        t1 = new Thread(op4);
-        t1.start();
-        op4.setThreadNumber(t1.getId());
-        try{
-            t1.join();
-        } catch (Exception e){
-            System.out.println("Interrupted");
-        }
+        //Building a 3 thread Pool Executor to manage our threads
+        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(3);
 
+        //Begin the execution of operations that have no dependencies
+        Future<?> t1 = executor.submit(op1);
+        Future<?> t2 = executor.submit(op2);
+        Future<?> t3 = executor.submit(op5);
 
-        System.out.println("Operation " + op1.getId() + " was executed in thread " + op1.getThreadNumber() + "." );
-        System.out.println("Operation " + op2.getId() + " was executed in thread " + op2.getThreadNumber() + "." );
-        System.out.println("Operation " + op3.getId() + " was executed in thread " + op3.getThreadNumber() + "." );
-        System.out.println("Operation " + op4.getId() + " was executed in thread " + op4.getThreadNumber() + "." );
-        System.out.println("Operation " + op5.getId() + " was executed in thread " + op5.getThreadNumber() + "." );
+        try {
+            //Getting operations 1 and 2 and waiting for
+            //them to finish before we start the operation 3
+            t1.get();
+            t2.get();
 
+            //Start operation 3 with a free thread of the pool
+            t1 = executor.submit(op3);
+
+            //Wait for operation 3 to finish
+            t1.get();
+
+            //Start operation 4 with another free thread
+            t1 = executor.submit(op4);
+
+            //Making sure that every operation finished before
+            //shutting down the executor
+            t1.get();
+            t3.get();
+
+            //Shutting down executor
+            executor.shutdown();
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }

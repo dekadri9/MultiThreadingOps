@@ -1,36 +1,37 @@
 public class Operation implements Runnable {
 
+    //Operation identifier
     private int id;
-    private Long threadNumber;
 
-    public int getId(){
-        return this.id;
-    }
-
-
+    //Operation constructor
     public Operation (int id){
         this.id = id;
     }
 
-    public void setThreadNumber(Long threadNumber){
-        this.threadNumber = threadNumber;
-    }
-
-    public Long getThreadNumber() {
-        return threadNumber;
-    }
-
+    //Override of Runnable function run()
     @Override
     public void run() {
-            System.out.println("Performing operation " + id + ".");
+
+            //Inform user that some operation is performing and which thread is doing it
+            System.out.println("Performing operation " + id + " in thread number " + Thread.currentThread().getId() + ".");
 
             try {
-                Thread.sleep(1500);
+                //Giving different "operation time" to some operations
+                //in order to see if constraints are met
+                if (id == 1){
+                    Thread.sleep(500);
+                }
+                else if(id == 5){
+                    Thread.sleep(4700);
+                }
+                else Thread.sleep(1500);
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            System.out.println("Operation " + id + " finished.");
+            //Inform user about operation finishing and the release of its thread
+            System.out.println("Operation " + id + " finished. Thread number " + Thread.currentThread().getId() + " released." );
 
     }
 
