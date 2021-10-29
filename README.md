@@ -8,6 +8,8 @@ In order to execute the program, at least Java SDK 11 (Java version 11.0.6) must
 
 ## Usage
 
+You can find the executable file at /out/artifacts/MultiThreadingOperations_jar and then execute it with this command line:
+
 ```bash
 java -jar MultiThreadingOperations.jar
 
