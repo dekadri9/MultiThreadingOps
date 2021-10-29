@@ -4,7 +4,7 @@ Multithreading operations is a Java program that parallelize the process of 5 op
 
 ## Software requisites
 
-In order to execute the program, at least Java SDK 11 (Java version 11.0.6) must be installed. You can install it here [Java](https://www.oracle.com/java/technologies/downloads/)
+In order to execute the program, at least Java SDK 11 (Java version 11.0.6) must be installed. You can install it here [Java](https://www.oracle.com/java/technologies/downloads/).
 
 ## Usage
 
@@ -30,4 +30,7 @@ Operation 5 finished. Thread number 14 released.
 Unit testing and how to execute it
 
 ## Out of scope
-Possible upgrades
+A possible upgrade to this solution will be making it more portable and reusable by doing it for a n number of operations and defining their dependencies.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

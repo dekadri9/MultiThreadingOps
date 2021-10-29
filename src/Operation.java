@@ -8,6 +8,10 @@ public class Operation implements Runnable {
         this.id = id;
     }
 
+    public int getId() {
+        return id;
+    }
+
     //Override of Runnable function run()
     @Override
     public void run() {
