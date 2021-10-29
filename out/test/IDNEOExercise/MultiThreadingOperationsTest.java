@@ -2,8 +2,6 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runners.JUnit4;
 
-import java.io.IOException;
-
 public class MultiThreadingOperationsTest extends TestCase {
 
     private MultiThreadingOperations multiThread;
@@ -19,6 +17,7 @@ public class MultiThreadingOperationsTest extends TestCase {
      * Called after every test case method.
      */
     protected void tearDown() {
+
         multiThread = null;
     }
 
