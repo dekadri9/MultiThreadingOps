@@ -4,12 +4,10 @@ public class Operation implements Runnable {
 
     private int id;
 
-
     public Operation (int id){
         this.id = id;
     }
-
-
+    
     @Override
     public void run() {
             System.out.println("Performing operation " + id + " in thread number " + Thread.currentThread().getId() + ".");
