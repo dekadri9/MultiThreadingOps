@@ -1,4 +1,4 @@
-# Multithreading Operations
+# MultiThreading Operations
 
 Multithreading operations is a Java program that parallelize the process of 5 operations, keeping the correct dependencies between them.
 
