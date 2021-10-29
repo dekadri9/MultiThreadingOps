@@ -27,7 +27,7 @@ Operation 5 finished. Thread number 14 released.
 ```
 
 ## Testing
-Unit testing and how to execute it
+JUnit4 tests have been implemented. In order to correctly run them, it's recommended to use IntelliJ IDE to open the project and then make right click over test directory and finally select "Run 'All tests'".
 
 ## Out of scope
 A possible upgrade to this solution will be making it more portable and reusable by doing it for a n number of operations and defining their dependencies.
