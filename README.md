@@ -9,7 +9,7 @@ In order to execute the program, at least Java SDK 11 (Java version 11.0.6) must
 ## Usage
 
 ```bash
-java MultiThreadingOperations.jar
+java -jar MultiThreadingOperations.jar
 
 #Output
 
