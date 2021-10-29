@@ -1,3 +1,5 @@
+import java.util.concurrent.ThreadPoolExecutor;
+
 public class Operation implements Runnable {
 
     private int id;
@@ -13,12 +15,18 @@ public class Operation implements Runnable {
             System.out.println("Performing operation " + id + " in thread number " + Thread.currentThread().getId() + ".");
 
             try {
-                Thread.sleep(1500);
+                if (id == 1){
+                    Thread.sleep(500);
+                }
+                else if(id == 5){
+                    Thread.sleep(4700);
+                }
+                else Thread.sleep(1500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            System.out.println("Operation " + id + " finished.");
+            System.out.println("Operation " + id + " finished. Thread number " + Thread.currentThread().getId() + " released." );
 
     }
 

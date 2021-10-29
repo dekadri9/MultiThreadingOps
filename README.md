@@ -13,16 +13,16 @@ java MultiThreadingOperations.jar
 
 #Output
 
-Performing operation 2 in thread number 13.
-Performing operation 5 in thread number 14.
 Performing operation 1 in thread number 12.
-Operation 2 finished.
-Operation 1 finished.
-Operation 5 finished.
-Performing operation 3 in thread number 16.
-Operation 3 finished.
-Performing operation 4 in thread number 17.
-Operation 4 finished.
+Performing operation 5 in thread number 14.
+Performing operation 2 in thread number 13.
+Operation 1 finished. Thread number 12 released.
+Operation 2 finished. Thread number 13 released.
+Performing operation 3 in thread number 12.
+Operation 3 finished. Thread number 12 released.
+Performing operation 4 in thread number 13.
+Operation 4 finished. Thread number 13 released.
+Operation 5 finished. Thread number 14 released.
 
 ```
 
